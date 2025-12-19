@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星谕塔罗 (Star Oracle Tarot)</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="main-container">
+        <header>
+            <h1>星谕塔罗</h1>
+            <p class="subtitle">向群星提问，揭示命运的指引</p>
+        </header>
+        
+        <div class="input-section" id="inputSection">
+            <div class="question-box">
+                <label for="question">心中的疑惑：</label>
+                <textarea id="question" placeholder="例如：我最近的感情运势如何？这份工作适合我吗？" rows="3"></textarea>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="drawCount">抽取牌数：</label>
+                    <input type="number" id="drawCount" value="3" min="1" max="10">
+                </div>
+                <button id="startBtn" class="magic-btn">
+                    <span class="btn-content">开始仪式</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="game-area" id="gameArea" style="display: none;">
+            <div class="status-bar">
+                <span id="statusText">请凝视星空，抽取你的卡牌...</span>
+                <button id="resetBtn" class="small-btn" style="display: none;">重新开始</button>
+            </div>
+
+            <div class="scene">
+                <!-- 散牌区域 -->
+                <div id="spread-area" class="spread-area"></div>
+                
+                <!-- 手牌区域 -->
+                <div id="hand-area" class="hand-area"></div>
+            </div>
+        </div>
+
+        <div id="interpretation-section" class="interpretation-section" style="display: none;">
+            <div class="question-review">
+                <h3><span class="icon">✨</span> 你的提问</h3>
+                <p id="review-question-text"></p>
+            </div>
+            <h2><span class="icon">🔮</span> 命运的解读</h2>
+            <div id="loading" class="loading">
+                <div class="crystal-ball"></div>
+                <p>正在沟通星灵，解读牌意...</p>
+            </div>
+            <div id="result-content" class="result-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
